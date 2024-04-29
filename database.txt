@@ -1,0 +1,709 @@
+Sunday 25-2-2024
+
+Enter password: ************** Animesh@212004
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 18
+Server version: 8.0.36 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use databases;
+ERROR 1049 (42000): Unknown database 'databases'
+mysql> use dbs
+ERROR 1049 (42000): Unknown database 'dbs'
+mysql> use databes
+ERROR 1049 (42000): Unknown database 'databes'
+mysql> create database student;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use student;
+Database changed
+mysql> create table emp(id int(8),name varchar(50),address varchar(50));
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+mysql> desc student;
+ERROR 1146 (42S02): Table 'student.student' doesn't exist
+mysql> desc emp;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int         | YES  |     | NULL    |       |
+| name    | varchar(50) | YES  |     | NULL    |       |
+| address | varchar(50) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> insert into emp values('101','rakesh','mubai');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into emp values('102','rajesh','mumbai');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from emp;
++------+--------+---------+
+| id   | name   | address |
++------+--------+---------+
+|  101 | rakesh | mubai   |
+|  102 | rajesh | mumbai  |
++------+--------+---------+
+2 rows in set (0.00 sec)
+
+mysql>
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+saturday 2-3-2024
+
+Enter password: **************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.36 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| soil               |
+| student            |
+| sys                |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use student;
+Database changed
+mysql> desc emp;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int         | YES  |     | NULL    |       |
+| name    | varchar(50) | YES  |     | NULL    |       |
+| address | varchar(50) | YES  |     | NULL    |       |
+| salary  | int         | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select *from null;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'null' at line 1
+mysql> select *from emp;
++------+---------+---------+--------+
+| id   | name    | address | salary |
++------+---------+---------+--------+
+|  101 | rakesh  | Mumbai  |   NULL |
+|  102 | ramesh  | Pune    |   NULL |
+|  103 | Animesh | Delhi   |   NULL |
++------+---------+---------+--------+
+3 rows in set (0.00 sec)
+
+mysql> insert into emp values('104','Neha','Noida','500000000000');
+ERROR 1264 (22003): Out of range value for column 'salary' at row 1
+mysql> insert into emp values('104','Neha','Noida','50000');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from emp;
++------+---------+---------+--------+
+| id   | name    | address | salary |
++------+---------+---------+--------+
+|  101 | rakesh  | Mumbai  |   NULL |
+|  102 | ramesh  | Pune    |   NULL |
+|  103 | Animesh | Delhi   |   NULL |
+|  104 | Neha    | Noida   |  50000 |
++------+---------+---------+--------+
+4 rows in set (0.00 sec)
+
+mysql> update emp set salary='100000' where id='101';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from emp;
++------+---------+---------+--------+
+| id   | name    | address | salary |
++------+---------+---------+--------+
+|  101 | rakesh  | Mumbai  | 100000 |
+|  102 | ramesh  | Pune    |   NULL |
+|  103 | Animesh | Delhi   |   NULL |
+|  104 | Neha    | Noida   |  50000 |
++------+---------+---------+--------+
+4 rows in set (0.00 sec)
+
+mysql> update emp set salary='100000' where id='102';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set salary='100000' where id='103';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> desc emp;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int         | YES  |     | NULL    |       |
+| name    | varchar(50) | YES  |     | NULL    |       |
+| address | varchar(50) | YES  |     | NULL    |       |
+| salary  | int         | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select *from emp;
++------+---------+---------+--------+
+| id   | name    | address | salary |
++------+---------+---------+--------+
+|  101 | rakesh  | Mumbai  | 100000 |
+|  102 | ramesh  | Pune    | 100000 |
+|  103 | Animesh | Delhi   | 100000 |
+|  104 | Neha    | Noida   |  50000 |
++------+---------+---------+--------+
+4 rows in set (0.00 sec)
+
+mysql> insert into emp values("105","pratiksha","Thane","50000");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into emp values("106","Mukesh","Mumbai","100000");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into emp values("107","Soham","Mumbai","100000");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into emp values("108","sahil","Mumbai","100000");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into emp values("109","vedant","Mumbai","10000");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from emp;
++------+-----------+---------+--------+
+| id   | name      | address | salary |
++------+-----------+---------+--------+
+|  101 | rakesh    | Mumbai  | 100000 |
+|  102 | ramesh    | Pune    | 100000 |
+|  103 | Animesh   | Delhi   | 100000 |
+|  104 | Neha      | Noida   |  50000 |
+|  105 | pratiksha | Thane   |  50000 |
+|  106 | Mukesh    | Mumbai  | 100000 |
+|  107 | Soham     | Mumbai  | 100000 |
+|  108 | sahil     | Mumbai  | 100000 |
+|  109 | vedant    | Mumbai  |  10000 |
++------+-----------+---------+--------+
+9 rows in set (0.00 sec)
+
+mysql> insert into emp values("110","Narayan","Mumbai","100000");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from emp;
++------+-----------+---------+--------+
+| id   | name      | address | salary |
++------+-----------+---------+--------+
+|  101 | rakesh    | Mumbai  | 100000 |
+|  102 | ramesh    | Pune    | 100000 |
+|  103 | Animesh   | Delhi   | 100000 |
+|  104 | Neha      | Noida   |  50000 |
+|  105 | pratiksha | Thane   |  50000 |
+|  106 | Mukesh    | Mumbai  | 100000 |
+|  107 | Soham     | Mumbai  | 100000 |
+|  108 | sahil     | Mumbai  | 100000 |
+|  109 | vedant    | Mumbai  |  10000 |
+|  110 | Narayan   | Mumbai  | 100000 |
++------+-----------+---------+--------+
+10 rows in set (0.00 sec)
+
+mysql>
+
+
+-----------------------------------------------------------------------------------------------------------
+sunday 10-3-2024 
+Enter password: **************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 8.0.36 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| soil               |
+| student            |
+| sys                |
+| world              |
++--------------------+
+8 rows in set (0.01 sec)
+
+mysql> use student
+Database changed
+mysql> select *from emp;
++------+-----------+---------+--------+-----------+
+| id   | name      | address | salary | city      |
++------+-----------+---------+--------+-----------+
+|  101 | rakesh    | Mumbai  | 100000 | Borivali  |
+|  102 | ramesh    | Pune    | 100000 | Kandivali |
+|  103 | Animesh   | Delhi   | 100000 | Kandivali |
+|  104 | Neha      | Noida   |  50000 | Malad     |
+|  105 | pratiksha | Thane   |  50000 | Borivali  |
+|  106 | Mukesh    | Mumbai  | 100000 | Kandivali |
+|  107 | Soham     | Mumbai  | 100000 | Kandivali |
+|  108 | sahil     | Mumbai  | 100000 | Borivali  |
+|  109 | vedant    | Mumbai  |  10000 | Borivali  |
+|  110 | Narayan   | Mumbai  | 100000 | Borivali  |
++------+-----------+---------+--------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> select *from emp where name like 'a%';
++------+---------+---------+--------+-----------+
+| id   | name    | address | salary | city      |
++------+---------+---------+--------+-----------+
+|  103 | Animesh | Delhi   | 100000 | Kandivali |
++------+---------+---------+--------+-----------+
+1 row in set (0.01 sec)
+
+mysql> select *from emp where name like '%a';
++------+-----------+---------+--------+----------+
+| id   | name      | address | salary | city     |
++------+-----------+---------+--------+----------+
+|  104 | Neha      | Noida   |  50000 | Malad    |
+|  105 | pratiksha | Thane   |  50000 | Borivali |
++------+-----------+---------+--------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select *from emp where name like '%a%';
++------+-----------+---------+--------+-----------+
+| id   | name      | address | salary | city      |
++------+-----------+---------+--------+-----------+
+|  101 | rakesh    | Mumbai  | 100000 | Borivali  |
+|  102 | ramesh    | Pune    | 100000 | Kandivali |
+|  103 | Animesh   | Delhi   | 100000 | Kandivali |
+|  104 | Neha      | Noida   |  50000 | Malad     |
+|  105 | pratiksha | Thane   |  50000 | Borivali  |
+|  107 | Soham     | Mumbai  | 100000 | Kandivali |
+|  108 | sahil     | Mumbai  | 100000 | Borivali  |
+|  109 | vedant    | Mumbai  |  10000 | Borivali  |
+|  110 | Narayan   | Mumbai  | 100000 | Borivali  |
++------+-----------+---------+--------+-----------+
+9 rows in set (0.00 sec)
+
+mysql> select *from emp where name like '_a_';
+Empty set (0.00 sec)
+
+mysql> select *from emp where name like '%an';
++------+---------+---------+--------+----------+
+| id   | name    | address | salary | city     |
++------+---------+---------+--------+----------+
+|  110 | Narayan | Mumbai  | 100000 | Borivali |
++------+---------+---------+--------+----------+
+1 row in set (0.00 sec)
+
+mysql> select *from emp where name like 'an%';
++------+---------+---------+--------+-----------+
+| id   | name    | address | salary | city      |
++------+---------+---------+--------+-----------+
+|  103 | Animesh | Delhi   | 100000 | Kandivali |
++------+---------+---------+--------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select *from emp where name like 'a%' or name like 'n%';
++------+---------+---------+--------+-----------+
+| id   | name    | address | salary | city      |
++------+---------+---------+--------+-----------+
+|  103 | Animesh | Delhi   | 100000 | Kandivali |
+|  104 | Neha    | Noida   |  50000 | Malad     |
+|  110 | Narayan | Mumbai  | 100000 | Borivali  |
++------+---------+---------+--------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select *from emp where name like 'a%h';
++------+---------+---------+--------+-----------+
+| id   | name    | address | salary | city      |
++------+---------+---------+--------+-----------+
+|  103 | Animesh | Delhi   | 100000 | Kandivali |
++------+---------+---------+--------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select *from emp where name like 'n_h_';
++------+------+---------+--------+-------+
+| id   | name | address | salary | city  |
++------+------+---------+--------+-------+
+|  104 | Neha | Noida   |  50000 | Malad |
++------+------+---------+--------+-------+
+1 row in set (0.00 sec)
+
+mysql> select *from emp where name like 'n_h%';
++------+------+---------+--------+-------+
+| id   | name | address | salary | city  |
++------+------+---------+--------+-------+
+|  104 | Neha | Noida   |  50000 | Malad |
++------+------+---------+--------+-------+
+1 row in set (0.00 sec)
+
+mysql> select *from emp where name like 'a__%';
++------+---------+---------+--------+-----------+
+| id   | name    | address | salary | city      |
++------+---------+---------+--------+-----------+
+|  103 | Animesh | Delhi   | 100000 | Kandivali |
++------+---------+---------+--------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select *from emp where city like 'Borivali';
++------+-----------+---------+--------+----------+
+| id   | name      | address | salary | city     |
++------+-----------+---------+--------+----------+
+|  101 | rakesh    | Mumbai  | 100000 | Borivali |
+|  105 | pratiksha | Thane   |  50000 | Borivali |
+|  108 | sahil     | Mumbai  | 100000 | Borivali |
+|  109 | vedant    | Mumbai  |  10000 | Borivali |
+|  110 | Narayan   | Mumbai  | 100000 | Borivali |
++------+-----------+---------+--------+----------+
+5 rows in set (0.00 sec)
+
+mysql>
+
+
+Tables 
+
+
+
+Enter password: **************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 13
+Server version: 8.0.36 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| soil               |
+| student            |
+| sys                |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use student;
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_student |
++-------------------+
+| emp               |
+| emps              |
++-------------------+
+2 rows in set (0.03 sec)
+
+mysql> desc emp;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int         | YES  |     | NULL    |       |
+| name    | varchar(50) | YES  |     | NULL    |       |
+| address | varchar(50) | YES  |     | NULL    |       |
+| salary  | int         | YES  |     | NULL    |       |
+| city    | varchar(50) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select *from emp;
++------+-----------+---------+--------+-----------+
+| id   | name      | address | salary | city      |
++------+-----------+---------+--------+-----------+
+|  101 | rakesh    | Mumbai  | 100000 | Borivali  |
+|  102 | ramesh    | Pune    | 100000 | Kandivali |
+|  103 | Animesh   | Delhi   | 100000 | Kandivali |
+|  104 | Neha      | Noida   |  50000 | Malad     |
+|  105 | pratiksha | Thane   |  50000 | Borivali  |
+|  106 | Mukesh    | Mumbai  | 100000 | Kandivali |
+|  107 | Soham     | Mumbai  | 100000 | Kandivali |
+|  108 | sahil     | Mumbai  | 100000 | Borivali  |
+|  109 | vedant    | Mumbai  |  10000 | Borivali  |
+|  110 | Narayan   | Mumbai  | 100000 | Borivali  |
++------+-----------+---------+--------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> desc emps;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int          | NO   | PRI | NULL    |       |
+| name    | varchar(100) | YES  |     | NULL    |       |
+| address | varchar(100) | YES  |     | NULL    |       |
+| salary  | int          | YES  |     | NULL    |       |
+| city    | varchar(100) | YES  |     | NULL    |       |
+| phone   | int          | YES  | UNI | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> desc emps;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int          | NO   | PRI | NULL    |       |
+| name    | varchar(100) | YES  |     | NULL    |       |
+| address | varchar(100) | YES  |     | NULL    |       |
+| salary  | int          | YES  |     | NULL    |       |
+| city    | varchar(100) | YES  |     | NULL    |       |
+| phone   | int          | YES  | UNI | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> insert into emps values('01','Nisha','Maharashtra','100000','Mumbai','9326211146');
+ERROR 1264 (22003): Out of range value for column 'phone' at row 1
+mysql> insert into emps values('01','Nisha','Maharashtra','100000','Mumbai','9326');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from emps;
++----+-------+-------------+--------+--------+-------+
+| id | name  | address     | salary | city   | phone |
++----+-------+-------------+--------+--------+-------+
+|  1 | Nisha | Maharashtra | 100000 | Mumbai |  9326 |
++----+-------+-------------+--------+--------+-------+
+1 row in set (0.00 sec)
+
+mysql> insert into emps values('02','Aniket','Maharashtra','100000','Mumbai','9326211146');
+ERROR 1264 (22003): Out of range value for column 'phone' at row 1
+mysql> insert into emps values('02','Aniket','Maharashtra','100000','Mumbai','93262');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into emps values('01','Aniket','Maharashtra','100000','Mumbai','');
+ERROR 1366 (HY000): Incorrect integer value: '' for column 'phone' at row 1
+mysql> insert into emps values('01','Aniket','Maharashtra','100000','Mumbai','9326');
+ERROR 1062 (23000): Duplicate entry '1' for key 'emps.PRIMARY'
+mysql> select *from emps;
++----+--------+-------------+--------+--------+-------+
+| id | name   | address     | salary | city   | phone |
++----+--------+-------------+--------+--------+-------+
+|  1 | Nisha  | Maharashtra | 100000 | Mumbai |  9326 |
+|  2 | Aniket | Maharashtra | 100000 | Mumbai | 93262 |
++----+--------+-------------+--------+--------+-------+
+2 rows in set (0.00 sec)
+
+mysql> insert into emps values('02','Parth','Goa','100000','panji','81499');
+ERROR 1062 (23000): Duplicate entry '2' for key 'emps.PRIMARY'
+mysql> insert into emps values('03','Parth','Goa','100000','panji','81499');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into emps values('03','Parth','Goa','100000','panji','81499');
+ERROR 1062 (23000): Duplicate entry '3' for key 'emps.PRIMARY'
+mysql>
+
+
+2 nd time 
+
+Enter password: **************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 13
+Server version: 8.0.36 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| soil               |
+| student            |
+| sys                |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use student;
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_student |
++-------------------+
+| emp               |
+| emps              |
++-------------------+
+2 rows in set (0.03 sec)
+
+mysql> desc emp;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int         | YES  |     | NULL    |       |
+| name    | varchar(50) | YES  |     | NULL    |       |
+| address | varchar(50) | YES  |     | NULL    |       |
+| salary  | int         | YES  |     | NULL    |       |
+| city    | varchar(50) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select *from emp;
++------+-----------+---------+--------+-----------+
+| id   | name      | address | salary | city      |
++------+-----------+---------+--------+-----------+
+|  101 | rakesh    | Mumbai  | 100000 | Borivali  |
+|  102 | ramesh    | Pune    | 100000 | Kandivali |
+|  103 | Animesh   | Delhi   | 100000 | Kandivali |
+|  104 | Neha      | Noida   |  50000 | Malad     |
+|  105 | pratiksha | Thane   |  50000 | Borivali  |
+|  106 | Mukesh    | Mumbai  | 100000 | Kandivali |
+|  107 | Soham     | Mumbai  | 100000 | Kandivali |
+|  108 | sahil     | Mumbai  | 100000 | Borivali  |
+|  109 | vedant    | Mumbai  |  10000 | Borivali  |
+|  110 | Narayan   | Mumbai  | 100000 | Borivali  |
++------+-----------+---------+--------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> desc emps;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int          | NO   | PRI | NULL    |       |
+| name    | varchar(100) | YES  |     | NULL    |       |
+| address | varchar(100) | YES  |     | NULL    |       |
+| salary  | int          | YES  |     | NULL    |       |
+| city    | varchar(100) | YES  |     | NULL    |       |
+| phone   | int          | YES  | UNI | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> desc emps;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int          | NO   | PRI | NULL    |       |
+| name    | varchar(100) | YES  |     | NULL    |       |
+| address | varchar(100) | YES  |     | NULL    |       |
+| salary  | int          | YES  |     | NULL    |       |
+| city    | varchar(100) | YES  |     | NULL    |       |
+| phone   | int          | YES  | UNI | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> insert into emps values('01','Nisha','Maharashtra','100000','Mumbai','9326211146');
+ERROR 1264 (22003): Out of range value for column 'phone' at row 1
+mysql> insert into emps values('01','Nisha','Maharashtra','100000','Mumbai','9326');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from emps;
++----+-------+-------------+--------+--------+-------+
+| id | name  | address     | salary | city   | phone |
++----+-------+-------------+--------+--------+-------+
+|  1 | Nisha | Maharashtra | 100000 | Mumbai |  9326 |
++----+-------+-------------+--------+--------+-------+
+1 row in set (0.00 sec)
+
+mysql> insert into emps values('02','Aniket','Maharashtra','100000','Mumbai','9326211146');
+ERROR 1264 (22003): Out of range value for column 'phone' at row 1
+mysql> insert into emps values('02','Aniket','Maharashtra','100000','Mumbai','93262');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into emps values('01','Aniket','Maharashtra','100000','Mumbai','');
+ERROR 1366 (HY000): Incorrect integer value: '' for column 'phone' at row 1
+mysql> insert into emps values('01','Aniket','Maharashtra','100000','Mumbai','9326');
+ERROR 1062 (23000): Duplicate entry '1' for key 'emps.PRIMARY'
+mysql> select *from emps;
++----+--------+-------------+--------+--------+-------+
+| id | name   | address     | salary | city   | phone |
++----+--------+-------------+--------+--------+-------+
+|  1 | Nisha  | Maharashtra | 100000 | Mumbai |  9326 |
+|  2 | Aniket | Maharashtra | 100000 | Mumbai | 93262 |
++----+--------+-------------+--------+--------+-------+
+2 rows in set (0.00 sec)
+
+mysql> insert into emps values('02','Parth','Goa','100000','panji','81499');
+ERROR 1062 (23000): Duplicate entry '2' for key 'emps.PRIMARY'
+mysql> insert into emps values('03','Parth','Goa','100000','panji','81499');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into emps values('03','Parth','Goa','100000','panji','81499');
+ERROR 1062 (23000): Duplicate entry '3' for key 'emps.PRIMARY'
+mysql> select *from emps;
++----+--------+-------------+--------+--------+-------+
+| id | name   | address     | salary | city   | phone |
++----+--------+-------------+--------+--------+-------+
+|  1 | Nisha  | Maharashtra | 100000 | Mumbai |  9326 |
+|  2 | Aniket | Maharashtra | 100000 | Mumbai | 93262 |
+|  3 | Parth  | Goa         | 100000 | panji  | 81499 |
++----+--------+-------------+--------+--------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into emps (id,name,address,salary,city) values('04','sohan','West bengal','100000','odisa');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select *from emps;
++----+--------+-------------+--------+--------+-------+
+| id | name   | address     | salary | city   | phone |
++----+--------+-------------+--------+--------+-------+
+|  1 | Nisha  | Maharashtra | 100000 | Mumbai |  9326 |
+|  2 | Aniket | Maharashtra | 100000 | Mumbai | 93262 |
+|  3 | Parth  | Goa         | 100000 | panji  | 81499 |
+|  4 | sohan  | West bengal | 100000 | odisa  |  NULL |
++----+--------+-------------+--------+--------+-------+
+4 rows in set (0.00 sec)
+
+mysql> update emps set phone="93262111" where id="04";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from emps;
++----+--------+-------------+--------+--------+----------+
+| id | name   | address     | salary | city   | phone    |
++----+--------+-------------+--------+--------+----------+
+|  1 | Nisha  | Maharashtra | 100000 | Mumbai |     9326 |
+|  2 | Aniket | Maharashtra | 100000 | Mumbai |    93262 |
+|  3 | Parth  | Goa         | 100000 | panji  |    81499 |
+|  4 | sohan  | West bengal | 100000 | odisa  | 93262111 |
++----+--------+-------------+--------+--------+----------+
+4 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
